@@ -30,6 +30,16 @@ class PlaySoundsViewController: UIViewController {
     enum ButtonType: Int {
         case slow = 0, fast, chipmunk, vader, echo, reverb
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupAudio()
+
+        // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureUI(.notPlaying)
+    }
     // MARK: Actions
 
     @IBAction func playSoundForButton(_ sender: UIButton) {
@@ -54,16 +64,7 @@ class PlaySoundsViewController: UIViewController {
     @IBAction func stopButtonPressed(_ sender: AnyObject) {
         stopAudio()
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupAudio()
-
-        // Do any additional setup after loading the view.
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        configureUI(.notPlaying)
-    }
+    
 
     
 }
